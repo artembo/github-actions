@@ -1,0 +1,14 @@
+name: Deploy-branch
+
+on:
+  push:
+jobs:
+  warnings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: echo "::warning file=app.js,line=1,col=5::Missing semicolon"
+      - run: echo "::set-output name=action_fruit::strawberry"
+      - run: echo "::warning name=link::<a href='https://www.tarantool.io/'>Tarantool link</a>"
+
